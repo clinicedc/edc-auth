@@ -1,3 +1,2 @@
 include AUTHORS CHANGES README.rst LICENSE VERSION
-recursive-include edc_appointment/templates *
-recursive-include docs *
+recursive-include edc_auth/templates *
