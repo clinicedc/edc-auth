@@ -1,3 +1,5 @@
+|pypi| |travis| |coverage|
+
 edc-auth
 --------
 
@@ -22,3 +24,13 @@ Copy the same table from ``edc_base`` and fake the ``edc_auth`` migration.
 	python manage.py migrate edc_auth --fake
 
 You can now run the ``edc_base`` migration safely.
+
+.. |pypi| image:: https://img.shields.io/pypi/v/edc-auth.svg
+    :target: https://pypi.python.org/pypi/edc-auth
+    
+.. |travis| image:: https://travis-ci.org/clinicedc/edc-auth.svg?branch=develop
+    :target: https://travis-ci.org/clinicedc/edc-auth
+    
+.. |coverage| image:: https://coveralls.io/repos/github/clinicedc/edc-auth/badge.svg?branch=develop
+    :target: https://coveralls.io/github/clinicedc/edc-auth?branch=develop
+
