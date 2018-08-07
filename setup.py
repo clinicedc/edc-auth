@@ -26,7 +26,8 @@ setup(
     keywords='django auth',
     install_requires=[
         'django[argon2]',
-        'zxcvbn-python'
+        'zxcvbn-python',
+        'edc-base',
     ],
     classifiers=[
         'Environment :: Web Environment',
