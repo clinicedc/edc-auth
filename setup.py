@@ -28,6 +28,7 @@ setup(
         'django[argon2]',
         'zxcvbn-python',
         'edc-base',
+        'edc_notification',
     ],
     classifiers=[
         'Environment :: Web Environment',
