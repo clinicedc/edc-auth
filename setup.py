@@ -25,9 +25,9 @@ setup(
     zip_safe=False,
     keywords='django auth',
     install_requires=[
+        'edc-base',
         'django[argon2]',
         'zxcvbn-python',
-        'edc-base',
         'edc_notification',
     ],
     classifiers=[
