@@ -1,31 +1,31 @@
 language: python
 
-python:
-- 3.6
-- 3.7
-
 dist: xenial
 
 sudo: true
 
-addons:
-  apt_packages:
-  - libcups2-dev
 services:
 - mysql
-branches:
-  only:
-  - develop
+
 install:
 - pip install --upgrade pip
-- pip install -e .
-- pip install -r requirements.txt
-- pip install flake8
-- pip install coveralls
+- pip install flake8 coverage codecov tox-travis
+
 before_script:
 - flake8 edc_auth
 - mysql -e 'create database edc character set utf8;'
+
 script:
-- coverage run --source=edc_auth manage.py test
+- coverage run -m tox
+
 after_success:
-- coveralls
+- codecov
+
+matrix:
+  include:
+    - python: 3.7
+      env: TOXENV=py37-django21
+    - python: 3.7
+      env: TOXENV=py37-django22
+;    - python: 3.7
+;      env: TOXENV=py37-djangotrunk
