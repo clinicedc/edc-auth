@@ -1,4 +1,4 @@
-|pypi| |travis| |coverage|
+|pypi| |travis| |codecov| |downloads|
 
 edc-auth
 --------
@@ -31,6 +31,8 @@ You can now run the ``edc_base`` migration safely.
 .. |travis| image:: https://travis-ci.org/clinicedc/edc-auth.svg?branch=develop
     :target: https://travis-ci.org/clinicedc/edc-auth
     
-.. |coverage| image:: https://coveralls.io/repos/github/clinicedc/edc-auth/badge.svg?branch=develop
-    :target: https://coveralls.io/github/clinicedc/edc-auth?branch=develop
+.. |codecov| image:: https://codecov.io/gh/clinicedc/edc-auth/branch/develop/graph/badge.svg
+  :target: https://codecov.io/gh/clinicedc/edc-auth
 
+.. |downloads| image:: https://pepy.tech/badge/edc-auth
+   :target: https://pepy.tech/project/edc-auth
