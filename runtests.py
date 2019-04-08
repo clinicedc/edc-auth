@@ -7,7 +7,7 @@ import sys
 from django.conf import settings
 from django.test.runner import DiscoverRunner
 from edc_test_utils import DefaultTestSettings
-from os.path import abspath, dirname, join
+from os.path import abspath, dirname
 
 
 app_name = 'edc_auth'
