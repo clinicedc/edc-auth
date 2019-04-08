@@ -33,7 +33,6 @@ setup(
     zip_safe=False,
     keywords='django auth edc',
     install_requires=[
-        'edc-base',
         'django[argon2]',
         'edc_notification',
         'mempass',
