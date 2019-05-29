@@ -29,6 +29,7 @@ DEFAULT_SETTINGS = DefaultTestSettings(
         "edc_notification.apps.AppConfig",
         "edc_auth.apps.AppConfig",
     ],
+    add_dashboard_middleware=True,
 ).settings
 
 
