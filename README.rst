@@ -5,7 +5,34 @@ edc-auth
 
 Authentication for the Edc
 
+Importing users
++++++++++++++++
 
+You create user accounts by importing a specially formatted CSV file. Once an account is created a "Welcome" email may be sent.
+
+Import users from a CSV file with columns:
+
+.. code-block:: bash
+
+	username
+	first_name
+	last_name
+    job_title
+    email
+    alternate_email
+    mobile
+    sites: a comma-separated list of sites
+    groups: a comma-separated list of groups
+
+
+Then import the users from your application commandline
+
+.. code-block:: bash	
+
+	python manage.py import_users --csvfile=/Users/erikvw/meta_users.csv --notify-to-test-email=ew2789@gmail --resource-name=meta.clinicedc.org --resend-as-new
+
+Legacy notes
+++++++++++++
 
 **Important:** If you are upgrading from edc_base.auth:
 
