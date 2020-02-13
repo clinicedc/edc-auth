@@ -8,7 +8,7 @@ edc_appointment
 edc_list_data
 edc_auth
 edc_dashboard
-edc_data_manager
+edc_data_manager==0.2.43
 edc_device
 edc_export
 edc_identifier
