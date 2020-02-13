@@ -7,7 +7,7 @@ edc_randomization
 edc_appointment
 edc_list_data
 edc_auth
-edc_dashboard
+edc_dashboard==0.2.63
 edc_data_manager
 edc_device
 edc_export
