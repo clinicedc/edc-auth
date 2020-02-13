@@ -5,7 +5,7 @@ django_celery_beat
 edc_adverse_event
 edc_randomization
 edc_appointment
-edc_list_data
+edc_list_data==0.1.18
 edc_auth
 edc_dashboard
 edc_data_manager
