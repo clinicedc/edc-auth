@@ -10,7 +10,7 @@ edc_auth
 edc_dashboard
 edc_data_manager
 edc_device
-edc_export
+edc_export==0.2.40
 edc_identifier
 edc_lab
 edc_lab_dashboard
