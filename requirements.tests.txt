@@ -1,5 +1,5 @@
 django-crypto-fields
-django_celery_results
+django_celery_results==1.2.0
 django_celery_beat
 # adverse_event_app
 edc_adverse_event
