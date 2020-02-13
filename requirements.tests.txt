@@ -14,7 +14,7 @@ edc_export
 edc_identifier
 edc_lab
 edc_lab_dashboard
-edc_locator
+edc_locator==0.2.32
 edc_metadata
 edc_metadata_rules
 edc_navbar
