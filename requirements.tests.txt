@@ -9,7 +9,7 @@ edc_list_data
 edc_auth
 edc_dashboard
 edc_data_manager
-edc_device
+edc_device==0.2.23
 edc_export
 edc_identifier
 edc_lab
