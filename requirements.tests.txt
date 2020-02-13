@@ -11,7 +11,7 @@ edc_dashboard
 edc_data_manager
 edc_device
 edc_export
-edc_identifier
+edc_identifier==0.2.35
 edc_lab
 edc_lab_dashboard
 edc_locator
