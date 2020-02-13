@@ -21,7 +21,7 @@ edc_navbar
 edc_notification
 edc_offstudy
 edc_pharmacy
-edc_reference
+edc_reference==0.1.43
 edc_registration
 edc_sites
 edc_visit_schedule
