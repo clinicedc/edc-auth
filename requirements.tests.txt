@@ -24,4 +24,4 @@ edc_pharmacy
 edc_reference
 edc_registration
 edc_sites
-edc_visit_schedule
+edc_visit_schedule==0.2.51
