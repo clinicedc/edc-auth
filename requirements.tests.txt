@@ -15,7 +15,7 @@ edc_identifier
 edc_lab
 edc_lab_dashboard
 edc_locator
-edc_metadata
+edc_metadata==0.2.52
 edc_metadata_rules
 edc_navbar
 edc_notification
