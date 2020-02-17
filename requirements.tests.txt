@@ -4,7 +4,7 @@ django_celery_beat
 # adverse_event_app
 edc_adverse_event
 edc_randomization
-edc_appointment
+edc_appointment==0.2.60
 edc_list_data
 edc_auth
 edc_dashboard
