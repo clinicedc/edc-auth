@@ -1,1 +1,1 @@
-faker
+faker==1.0.2
