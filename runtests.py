@@ -9,7 +9,7 @@ from django.test.runner import DiscoverRunner
 from edc_test_utils import DefaultTestSettings
 from os.path import abspath, dirname
 
-app_name = 'edc_auth'
+app_name = "edc_auth"
 base_dir = dirname(abspath(__file__))
 
 DEFAULT_SETTINGS = DefaultTestSettings(
@@ -67,9 +67,10 @@ def main():
     if not settings.configured:
         settings.configure(**DEFAULT_SETTINGS)
     django.setup()
-    tags = [t.split('=')[1] for t in sys.argv if t.startswith('--tag')]
+    tags = [t.split("=")[1] for t in sys.argv if t.startswith("--tag")]
     failures = DiscoverRunner(failfast=False, tags=tags).run_tests(
-        [f'{app_name}.tests'])
+        [f"{app_name}.tests"]
+    )
     sys.exit(failures)
 
 
