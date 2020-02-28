@@ -23,5 +23,5 @@ edc_offstudy
 edc_pharmacy
 edc_reference
 edc_registration
-edc_sites
+edc_sites==0.1.15
 edc_visit_schedule
