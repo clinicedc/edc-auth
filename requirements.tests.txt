@@ -3,7 +3,7 @@ django_celery_results
 django_celery_beat
 # adverse_event_app
 edc_adverse_event
-edc_randomization
+edc_randomization==0.1.34
 edc_appointment
 edc_list_data
 edc_auth
