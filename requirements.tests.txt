@@ -17,7 +17,7 @@ edc_lab_dashboard
 edc_locator
 edc_metadata
 edc_metadata_rules
-edc_navbar
+edc_navbar==0.1.36
 edc_notification
 edc_offstudy
 edc_pharmacy
