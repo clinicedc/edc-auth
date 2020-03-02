@@ -12,7 +12,7 @@ edc-data-manager
 edc-device
 edc-export
 edc-identifier
-edc-lab
+edc-lab==0.2.60
 edc-lab-dashboard
 edc-locator
 edc-metadata
