@@ -22,7 +22,7 @@ edc-notification
 edc-offstudy
 edc-pharmacy
 edc-reference
-edc-registration
+edc-registration==0.2.41
 edc-sites
 edc-timepoint
 edc-visit-schedule
