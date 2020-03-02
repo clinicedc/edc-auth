@@ -21,7 +21,7 @@ edc-navbar
 edc-notification
 edc-offstudy
 edc-pharmacy
-edc-reference
+edc-reference==0.1.43
 edc-registration
 edc-sites
 edc-timepoint
