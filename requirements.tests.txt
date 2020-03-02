@@ -6,7 +6,7 @@ edc-adverse-event
 edc-randomization
 edc-appointment
 edc-list-data
-edc-auth
+edc-auth==0.1.48
 edc-dashboard
 edc-data-manager
 edc-device
