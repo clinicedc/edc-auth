@@ -1,6 +1,6 @@
 django-crypto-fields
 django-celery-results
-django-celery-beat
+django-celery-beat==2.0.0
 # adverse-event-app
 edc-adverse-event
 edc-randomization
