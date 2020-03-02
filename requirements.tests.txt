@@ -14,7 +14,7 @@ edc-export
 edc-identifier
 edc-lab
 edc-lab-dashboard
-edc-locator
+edc-locator==0.2.32
 edc-metadata
 edc-metadata-rules
 edc-navbar
