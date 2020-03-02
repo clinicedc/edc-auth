@@ -25,4 +25,4 @@ edc-reference
 edc-registration
 edc-sites
 edc-timepoint
-edc-visit-schedule
+edc-visit-schedule==0.2.52
