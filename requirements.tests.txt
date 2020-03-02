@@ -7,7 +7,7 @@ edc-randomization
 edc-appointment
 edc-list-data
 edc-auth
-edc-dashboard
+edc-dashboard==0.2.64
 edc-data-manager
 edc-device
 edc-export
