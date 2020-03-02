@@ -16,7 +16,7 @@ edc-lab
 edc-lab-dashboard
 edc-locator
 edc-metadata
-edc-metadata-rules
+edc-metadata-rules==0.1.21
 edc-navbar
 edc-notification
 edc-offstudy
