@@ -9,7 +9,7 @@ edc-list-data
 edc-auth
 edc-dashboard
 edc-data-manager
-edc-device
+edc-device==0.2.23
 edc-export
 edc-identifier
 edc-lab
