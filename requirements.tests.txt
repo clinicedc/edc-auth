@@ -13,7 +13,7 @@ edc-device
 edc-export
 edc-identifier
 edc-lab
-edc-lab-dashboard
+edc-lab-dashboard==0.1.32
 edc-locator
 edc-metadata
 edc-metadata-rules
