@@ -2,7 +2,7 @@ django[argon2]
 django-crypto-fields
 django-celery-results
 django-celery-beat
-edc-adverse-event
+edc-adverse-event==0.1.23
 edc-randomization
 edc-appointment
 edc-list-data
