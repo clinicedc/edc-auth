@@ -22,7 +22,7 @@ edc-notification
 edc-offstudy
 edc-pharmacy
 edc-reference
-edc-reportable
+edc-reportable==0.1.29
 edc-registration
 edc-sites
 edc-timepoint
