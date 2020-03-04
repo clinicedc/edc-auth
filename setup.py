@@ -32,7 +32,7 @@ setup(
     long_description=README,
     zip_safe=False,
     keywords="django auth edc",
-    install_requires=["django[argon2]", "edc_notification", "mempass",],
+    install_requires=["mempass"],
     classifiers=[
         "Environment :: Web Environment",
         "Framework :: Django",
