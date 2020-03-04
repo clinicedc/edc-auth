@@ -1,4 +1,4 @@
-django[argon2]
+django[argon2]==3.0.3
 django-crypto-fields
 django-celery-results
 django-celery-beat
