@@ -1,7 +1,7 @@
+django[argon2]
 django-crypto-fields
 django-celery-results
 django-celery-beat
-# adverse-event-app
 edc-adverse-event
 edc-randomization
 edc-appointment
@@ -22,6 +22,7 @@ edc-notification
 edc-offstudy
 edc-pharmacy
 edc-reference
+edc-reportable
 edc-registration
 edc-sites
 edc-timepoint
