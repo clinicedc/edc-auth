@@ -24,6 +24,6 @@ edc-pharmacy
 edc-reference
 edc-reportable
 edc-registration
-edc-sites
+edc-sites==0.1.16
 edc-timepoint
 edc-visit-schedule
