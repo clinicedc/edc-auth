@@ -24,7 +24,7 @@ edc-offstudy
 edc-prn
 edc-protocol
 edc-pharmacy
-edc-randomization
+edc-randomization==0.1.36
 edc-reportable
 edc-reports
 edc-reference
