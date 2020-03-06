@@ -36,4 +36,4 @@ edc-subject-model-wrappers
 edc-timepoint
 edc-visit-schedule
 edc-visit-tracking
-django-webtest
+django-webtest==1.9.7
