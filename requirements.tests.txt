@@ -21,7 +21,7 @@ edc-model-admin
 edc-navbar
 edc-notification
 edc-offstudy
-edc-prn
+edc-prn==0.1.14
 edc-protocol
 edc-pharmacy
 edc-randomization
