@@ -31,7 +31,7 @@ edc-reference
 edc-registration
 edc-search
 edc-sites
-edc-subject-dashboard
+edc-subject-dashboard==0.1.49
 edc-subject-model-wrappers
 edc-timepoint
 edc-visit-schedule
