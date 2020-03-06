@@ -11,7 +11,7 @@ edc-device
 edc-export
 edc-facility
 edc-fieldsets
-edc-identifier
+edc-identifier==0.2.38
 edc-lab
 edc-lab-dashboard
 edc-list-data
