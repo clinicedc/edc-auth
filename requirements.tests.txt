@@ -16,7 +16,7 @@ edc-lab
 edc-lab-dashboard
 edc-list-data
 edc-locator
-edc-metadata-rules
+edc-metadata-rules==0.1.24
 edc-model-admin
 edc-navbar
 edc-notification
