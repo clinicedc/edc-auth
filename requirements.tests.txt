@@ -20,7 +20,7 @@ edc-metadata-rules
 edc-navbar
 edc-notification
 edc-offstudy
-edc-pharmacy
+edc-pharmacy==0.1.2a11
 edc-reference
 edc-reportable
 edc-registration
