@@ -32,7 +32,7 @@ edc-registration
 edc-search
 edc-sites
 edc-subject-dashboard
-edc-subject-model-wrappers
+edc-subject-model-wrappers==0.1.8
 edc-timepoint
 edc-visit-schedule
 edc-visit-tracking
