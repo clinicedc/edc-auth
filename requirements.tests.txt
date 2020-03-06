@@ -22,7 +22,7 @@ edc-navbar
 edc-notification
 edc-offstudy
 edc-prn
-edc-protocol
+edc-protocol==0.1.18
 edc-pharmacy
 edc-randomization
 edc-reportable
