@@ -35,5 +35,5 @@ edc-subject-dashboard
 edc-subject-model-wrappers
 edc-timepoint
 edc-visit-schedule
-edc-visit-tracking
+edc-visit-tracking==0.2.47
 django-webtest
