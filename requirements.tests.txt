@@ -26,7 +26,7 @@ edc-protocol
 edc-pharmacy
 edc-randomization
 edc-reportable
-edc-reports
+edc-reports==0.1.23
 edc-reference
 edc-registration
 edc-search
