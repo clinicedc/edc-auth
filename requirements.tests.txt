@@ -1,6 +1,6 @@
 django-audit-fields
 django-crypto-fields
-django-revision
+django-revision==0.1.19
 edc-action-item
 edc-auth
 edc-adverse-event
