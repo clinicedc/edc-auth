@@ -30,7 +30,7 @@ edc-notification
 edc-offstudy
 edc_pdutils
 edc-pharmacy
-edc-pharmacy-dashboard
+edc-pharmacy-dashboard==0.1.1a10
 edc-prn
 edc-protocol
 edc-randomization
