@@ -28,7 +28,7 @@ edc-randomization
 edc-reportable
 edc-reports
 edc-reference
-edc-registration
+edc-registration==0.2.43
 edc-search
 edc-sites
 edc-subject-dashboard
