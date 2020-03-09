@@ -10,7 +10,7 @@ edc-action-item
 edc-adverse-event
 edc-auth
 edc-consent
-edc-crf
+edc-crf==0.0.2
 edc-dashboard
 edc-data-manager
 edc-device
