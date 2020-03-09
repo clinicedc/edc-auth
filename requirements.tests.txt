@@ -11,7 +11,7 @@ edc-adverse-event
 edc-auth
 edc-consent
 edc-crf
-edc-dashboard
+edc-dashboard==0.2.67
 edc-data-manager
 edc-device
 edc-export
