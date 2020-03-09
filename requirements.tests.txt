@@ -15,7 +15,7 @@ edc-dashboard
 edc-data-manager
 edc-device
 edc-export
-edc-facility
+edc-facility==0.1.26
 edc-fieldsets
 edc-form-label
 edc-identifier
