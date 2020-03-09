@@ -5,7 +5,7 @@ django-collect-offline
 django-collect-offline-files
 django-crypto-fields
 django-revision
-mysqlclient
+mysqlclient==1.4.6
 edc-action-item
 edc-adverse-event
 edc-auth
