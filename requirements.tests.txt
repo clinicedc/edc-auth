@@ -5,7 +5,7 @@ edc-action-item
 edc-auth
 edc-adverse-event
 edc-consent
-edc-dashboard
+edc-dashboard==0.2.66
 edc-data-manager
 edc-device
 edc-export
