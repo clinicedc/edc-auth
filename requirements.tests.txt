@@ -8,7 +8,7 @@ edc-consent
 edc-dashboard
 edc-data-manager
 edc-device
-edc-export
+edc-export==0.2.41
 edc-facility
 edc-fieldsets
 edc-identifier
