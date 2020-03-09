@@ -9,7 +9,7 @@ mysqlclient
 edc-action-item
 edc-adverse-event
 edc-auth
-edc-consent
+edc-consent==0.2.48
 edc-crf
 edc-dashboard
 edc-data-manager
