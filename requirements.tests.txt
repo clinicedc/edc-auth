@@ -38,7 +38,7 @@ edc-reference
 edc-registration
 edc-reportable
 edc-reports
-edc-review-dashboard
+edc-review-dashboard==0.2.15
 edc-screening
 edc-search
 edc-sites
