@@ -44,7 +44,7 @@ edc-search
 edc-sites
 edc-subject-dashboard
 edc-subject-model-wrappers
-edc-timepoint
+edc-timepoint==0.1.14
 edc-utils
 edc-visit-schedule
 edc-visit-tracking
