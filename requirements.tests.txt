@@ -21,7 +21,7 @@ edc-form-label
 edc-identifier
 edc-lab
 edc-lab-dashboard
-edc-list-data
+edc-list-data==0.1.19
 edc-locator
 edc-metadata-rules
 edc-model-admin
