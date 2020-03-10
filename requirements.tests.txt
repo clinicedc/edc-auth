@@ -27,7 +27,7 @@ edc-metadata-rules
 edc-model-admin
 edc-navbar
 edc-notification
-edc-offstudy
+edc-offstudy==0.2.25
 edc_pdutils
 edc-pharmacy
 edc-pharmacy-dashboard
