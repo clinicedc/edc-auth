@@ -31,7 +31,7 @@ edc-offstudy
 edc_pdutils
 edc-pharmacy
 edc-pharmacy-dashboard
-edc-prn
+edc-prn==0.1.15
 edc-protocol
 edc-randomization
 edc-reference
