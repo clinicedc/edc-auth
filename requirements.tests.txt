@@ -20,7 +20,7 @@ edc-fieldsets
 edc-form-label
 edc-identifier
 edc-lab
-edc-lab-dashboard
+edc-lab-dashboard==0.1.33
 edc-list-data
 edc-locator
 edc-metadata-rules
