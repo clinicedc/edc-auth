@@ -32,7 +32,7 @@ edc_pdutils
 edc-pharmacy
 edc-pharmacy-dashboard
 edc-prn
-edc-protocol
+edc-protocol==0.1.19
 edc-randomization
 edc-reference
 edc-registration
