@@ -34,7 +34,7 @@ edc-pharmacy-dashboard
 edc-prn
 edc-protocol
 edc-randomization
-edc-reference
+edc-reference==0.1.44
 edc-registration
 edc-reportable
 edc-reports
