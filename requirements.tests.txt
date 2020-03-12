@@ -13,7 +13,7 @@ edc-auth
 edc-consent
 edc-constants
 edc-crf
-edc-dashboard
+edc-dashboard==0.2.68
 edc-data-manager
 edc-device
 edc-export
