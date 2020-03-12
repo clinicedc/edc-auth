@@ -1,4 +1,4 @@
-django-audit-fields
+django-audit-fields==0.1.14
 django-celery-beat
 django-celery-results
 django-collect-offline
