@@ -3,7 +3,7 @@ django-celery-beat
 django-celery-results
 django-collect-offline
 django-collect-offline-files
-django-crypto-fields
+django-crypto-fields==0.1.27
 django-revision
 mysqlclient
 edc-action-item
