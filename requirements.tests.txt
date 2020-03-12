@@ -12,7 +12,7 @@ edc-appointment
 edc-auth
 edc-consent
 edc-constants
-edc-crf
+edc-crf==0.1.0
 edc-dashboard
 edc-data-manager
 edc-device
