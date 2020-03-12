@@ -43,7 +43,7 @@ edc-prn
 edc-protocol
 edc-randomization
 edc-reference
-edc-registration
+edc-registration==0.2.45
 edc-reportable
 edc-reports
 edc-review-dashboard
