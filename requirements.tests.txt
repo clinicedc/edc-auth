@@ -8,7 +8,7 @@ django-revision
 mysqlclient
 edc-action-item
 edc-adverse-event
-edc-appointment
+edc-appointment==0.2.66
 edc-auth
 edc-consent
 edc-constants
