@@ -25,7 +25,7 @@ edc-identifier
 edc-lab
 edc-lab-dashboard
 edc-label
-edc-list-data
+edc-list-data==0.1.20
 edc-locator
 edc-metadata
 edc-metadata-rules
