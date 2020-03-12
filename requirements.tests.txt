@@ -4,7 +4,7 @@ django-celery-results
 django-collect-offline
 django-collect-offline-files
 django-crypto-fields
-django-revision
+django-revision==0.1.20
 mysqlclient
 edc-action-item
 edc-adverse-event
