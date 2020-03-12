@@ -15,7 +15,7 @@ edc-constants
 edc-crf
 edc-dashboard
 edc-data-manager
-edc-device
+edc-device==0.2.25
 edc-export
 edc-facility
 edc-fieldsets
