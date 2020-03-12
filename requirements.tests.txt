@@ -1,7 +1,7 @@
 django-audit-fields
 django-celery-beat
 django-celery-results
-django-collect-offline
+django-collect-offline==0.2.48
 django-collect-offline-files
 django-crypto-fields
 django-revision
