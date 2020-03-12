@@ -53,7 +53,7 @@ edc-sites
 edc-subject-dashboard
 edc-subject-model-wrappers
 edc-test-utils
-edc-timepoint
+edc-timepoint==0.1.15
 edc-utils
 edc-visit-schedule
 edc-visit-tracking
