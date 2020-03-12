@@ -16,7 +16,7 @@ edc-crf
 edc-dashboard
 edc-data-manager
 edc-device
-edc-export
+edc-export==0.2.42
 edc-facility
 edc-fieldsets
 edc-form-label
