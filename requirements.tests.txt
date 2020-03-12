@@ -37,7 +37,7 @@ edc-navbar
 edc-notification
 edc-offstudy
 edc-pdutils
-edc-pharmacy
+edc-pharmacy==0.1.2a12
 edc-pharmacy-dashboard
 edc-prn
 edc-protocol
