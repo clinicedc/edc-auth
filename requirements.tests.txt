@@ -30,7 +30,7 @@ edc-locator
 edc-metadata
 edc-metadata-rules
 edc-model
-edc-model-admin
+edc-model-admin==0.2.24
 edc-model-fields
 edc-model-wrapper
 edc-navbar
