@@ -9,7 +9,7 @@ django_extensions
 mysqlclient
 edc-action-item
 edc-adverse-event
-edc-appointment
+edc-appointment==0.2.67
 edc-auth
 edc-consent
 edc-constants
