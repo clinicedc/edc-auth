@@ -32,7 +32,7 @@ edc-metadata
 edc-metadata-rules
 edc-model
 edc-model-admin
-edc-model-fields
+edc-model-fields==0.1.13
 edc-model-wrapper
 edc-navbar
 edc-notification
