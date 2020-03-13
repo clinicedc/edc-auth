@@ -7,7 +7,7 @@ django-crypto-fields
 django-revision
 django_extensions
 mysqlclient
-edc-action-item
+edc-action-item==0.1.71
 edc-adverse-event
 edc-appointment
 edc-auth
