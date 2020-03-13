@@ -25,7 +25,7 @@ edc-form-validators
 edc-identifier
 edc-lab
 edc-lab-dashboard
-edc-label
+edc-label==0.1.30
 edc-list-data
 edc-locator
 edc-metadata
