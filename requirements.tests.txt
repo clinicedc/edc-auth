@@ -19,7 +19,7 @@ edc-data-manager
 edc-device
 edc-export
 edc-facility
-edc-fieldsets
+edc-fieldsets==0.1.9
 edc-form-label
 edc-form-validators
 edc-identifier
