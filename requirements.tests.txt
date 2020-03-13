@@ -57,5 +57,5 @@ edc-test-utils
 edc-timepoint
 edc-utils
 edc-visit-schedule
-edc-visit-tracking
+edc-visit-tracking==0.2.49
 git+https://github.com/erikvw/django-simple-history@admin_revert_permissions2
