@@ -30,7 +30,7 @@ edc-list-data
 edc-locator
 edc-metadata
 edc-metadata-rules
-edc-model
+edc-model==0.1.26
 edc-model-admin
 edc-model-fields
 edc-model-wrapper
