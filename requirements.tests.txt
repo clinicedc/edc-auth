@@ -23,7 +23,7 @@ edc-fieldsets
 edc-form-label
 edc-form-validators
 edc-identifier
-edc-lab
+edc-lab==0.2.63
 edc-lab-dashboard
 edc-label
 edc-list-data
