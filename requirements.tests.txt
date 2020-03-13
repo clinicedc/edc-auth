@@ -20,7 +20,7 @@ edc-device
 edc-export
 edc-facility
 edc-fieldsets
-edc-form-label
+edc-form-label==0.1.5
 edc-form-validators
 edc-identifier
 edc-lab
