@@ -49,7 +49,7 @@ edc-reportable
 edc-reports
 edc-review-dashboard
 edc-screening
-edc-search
+edc-search==0.1.12
 edc-sites
 edc-subject-dashboard
 edc-subject-model-wrappers
