@@ -11,7 +11,7 @@ edc-action-item
 edc-adverse-event
 edc-appointment
 edc-auth
-edc-consent
+edc-consent==0.2.52
 edc-constants
 edc-crf
 edc-dashboard
