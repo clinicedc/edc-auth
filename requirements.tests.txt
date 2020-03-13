@@ -45,7 +45,7 @@ edc-protocol
 edc-randomization
 edc-reference
 edc-registration
-edc-reportable
+edc-reportable==0.1.33
 edc-reports
 edc-review-dashboard
 edc-screening
