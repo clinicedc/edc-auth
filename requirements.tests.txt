@@ -50,7 +50,7 @@ edc-reports
 edc-review-dashboard
 edc-screening
 edc-search
-edc-sites
+edc-sites==0.1.18
 edc-subject-dashboard
 edc-subject-model-wrappers
 edc-test-utils
