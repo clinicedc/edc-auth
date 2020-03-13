@@ -34,7 +34,7 @@ edc-model
 edc-model-admin
 edc-model-fields
 edc-model-wrapper
-edc-navbar
+edc-navbar==0.1.38
 edc-notification
 edc-offstudy
 edc-pdutils
