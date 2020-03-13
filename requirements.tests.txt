@@ -35,7 +35,7 @@ edc-model-admin
 edc-model-fields
 edc-model-wrapper
 edc-navbar
-edc-notification
+edc-notification==0.1.37
 edc-offstudy
 edc-pdutils
 edc-pharmacy
