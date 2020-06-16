@@ -31,6 +31,7 @@ DEFAULT_SETTINGS = DefaultTestSettings(
         "django_celery_results",
         "django_celery_beat",
         "logentry_admin",
+        "multisite",
         "django_crypto_fields.apps.AppConfig",
         "edc_action_item.apps.AppConfig",
         "adverse_event_app.apps.AppConfig",
