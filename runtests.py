@@ -58,6 +58,7 @@ DEFAULT_SETTINGS = DefaultTestSettings(
         "edc_reference.apps.AppConfig",
         "edc_registration.apps.AppConfig",
         "edc_sites.apps.AppConfig",
+        "edc_visit_tracking.apps.AppConfig",
         "edc_visit_schedule.apps.AppConfig",
     ],
     add_dashboard_middleware=True,
