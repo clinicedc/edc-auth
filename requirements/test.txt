@@ -1,2 +1,2 @@
 -r ./coverage.txt
-edc
+edc-test-utils
