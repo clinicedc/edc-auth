@@ -1,2 +1,4 @@
 -r ./coverage.txt
-edc-test-utils
+edc
+git+https://github.com/erikvw/django-multisite@master
+git+https://github.com/erikvw/django-import-export@get_export_admin_action

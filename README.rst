@@ -1,4 +1,4 @@
-|pypi| |travis| |codecov| |downloads|
+|pypi| |gh-actions| |codecov| |downloads|
 
 edc-auth
 --------
@@ -17,7 +17,7 @@ The default groups are required for the normal operation of an EDC deployment. T
 * ``CLINIC``: members may add/edit/delete all CRFs, Requisitions, Actions and other required clinic trial data entry forms. They may also view the Requisition page of the Lab section;
 * ``EVERYONE``: members may access the EDC;
 * ``LAB``: members may perform all functions in the Lab section (Edit requisitions, receive, process, pack, manage manifests, etc);
-* ``PHARMACY``: 
+* ``PHARMACY``:
 * ``PII``: members may view all personally identifiable data and edit forms that manage such data (Screening, Consents, Patient registration);
 * ``PII_VIEW``: members may view personally identifiable data but have no add/edit permissions for any of the forms that store such data.
 
@@ -51,7 +51,7 @@ Import users from a CSV file with columns:
 
 Then import the users from your application commandline
 
-.. code-block:: bash	
+.. code-block:: bash
 
 	python manage.py import_users --csvfile=/Users/erikvw/meta_users.csv --notify-to-test-email=ew2789@gmail --resource-name=meta.clinicedc.org --resend-as-new
 
@@ -64,8 +64,8 @@ The ``userprofile`` table is now in ``edc_auth``. ``edc_auth`` has one migration
 Copy the same table from ``edc_base`` and fake the ``edc_auth`` migration.
 
 .. code-block:: sql
-	
-	CREATE TABLE edc_auth_userprofile LIKE edc_base_userprofile; 
+
+	CREATE TABLE edc_auth_userprofile LIKE edc_base_userprofile;
 
 	INSERT edc_auth_userprofile SELECT * FROM edc_base_userprofile;
 
@@ -78,10 +78,11 @@ You can now run the ``edc_base`` migration safely.
 
 .. |pypi| image:: https://img.shields.io/pypi/v/edc-auth.svg
     :target: https://pypi.python.org/pypi/edc-auth
-    
-.. |travis| image:: https://travis-ci.com/clinicedc/edc-auth.svg?branch=develop
-    :target: https://travis-ci.com/clinicedc/edc-auth
-    
+
+.. |gh-actions| image:: https://github.com/clinicedc/edc-auth/workflows/build/badge.svg?branch=develop
+   :target: https://github.com/clinicedc/edc-auth/actions?workflow=build
+   :alt: Build Status
+
 .. |codecov| image:: https://codecov.io/gh/clinicedc/edc-auth/branch/develop/graph/badge.svg
   :target: https://codecov.io/gh/clinicedc/edc-auth
 
