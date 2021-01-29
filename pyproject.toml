@@ -1,0 +1,20 @@
+[tool.black]
+line-length = 88
+target-version = ["py35"]
+
+[tool.isort]
+profile = "black"
+py_version = "35"
+
+[tool.coverage.run]
+parallel = true
+branch = true
+source = ["edc_auth"]
+
+[tool.coverage.paths]
+source = ["edc_auth", ".tox/*/site-packages"]
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = true
+omit = ["requirements/*"]
