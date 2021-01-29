@@ -80,7 +80,7 @@ You can now run the ``edc_base`` migration safely.
     :target: https://pypi.python.org/pypi/edc-auth
 
 .. |actions| image:: https://github.com/clinicedc/edc-auth/workflows/build/badge.svg?branch=develop
-  :target: https://github.com/clinicedc/edc-auth/workflows/build/
+  :target: https://github.com/clinicedc/edc-auth/?query=workflow:build
 
 .. |codecov| image:: https://codecov.io/gh/clinicedc/edc-auth/branch/develop/graph/badge.svg
   :target: https://codecov.io/gh/clinicedc/edc-auth
