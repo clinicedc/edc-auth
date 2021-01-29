@@ -1,4 +1,4 @@
-|pypi| |actions| |codecov| |downloads|
+|pypi| |pyversions| |djversions| |actions| |codecov| |downloads|
 
 edc-auth
 --------
@@ -87,3 +87,11 @@ You can now run the ``edc_base`` migration safely.
 
 .. |downloads| image:: https://pepy.tech/badge/edc-auth
    :target: https://pepy.tech/project/edc-auth
+
+.. |pyversions| image:: https://img.shields.io/pypi/pyversions/django-defender.svg
+    :alt: Supported Python versions
+    :target: https://pypi.org/project/django-defender/
+
+.. |djversions| image:: https://img.shields.io/pypi/djversions/django-defender.svg
+   :target: https://pypi.org/project/django-defender/
+   :alt: Supported Django versions
