@@ -1,5 +1,0 @@
--r ./coverage.txt
-edc
-django-simple-history
-git+https://github.com/erikvw/django-multisite@master
-git+https://github.com/erikvw/django-import-export@get_export_admin_action
