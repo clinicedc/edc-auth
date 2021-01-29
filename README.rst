@@ -79,8 +79,8 @@ You can now run the ``edc_base`` migration safely.
 .. |pypi| image:: https://img.shields.io/pypi/v/edc-auth.svg
     :target: https://pypi.python.org/pypi/edc-auth
 
-.. |actions| image:: https://github.com/clinicedc/edc-auth/workflows/Test/badge.svg?branch=develop
-  :target: https://github.com/clinicedc/edc-auth/workflows/Test/
+.. |actions| image:: https://github.com/clinicedc/edc-auth/workflows/build/badge.svg?branch=develop
+  :target: https://github.com/clinicedc/edc-auth/workflows/build/
 
 .. |codecov| image:: https://codecov.io/gh/clinicedc/edc-auth/branch/develop/graph/badge.svg
   :target: https://codecov.io/gh/clinicedc/edc-auth
