@@ -1,23 +1,4 @@
-from .constants import (
-    ACCOUNT_MANAGER_ROLE,
-    AUDITOR_ROLE,
-    CLINICIAN_ROLE,
-    CLINICIAN_SUPER_ROLE,
-    CUSTOM_ROLE,
-    DATA_EXPORTER_ROLE,
-    DATA_MANAGER_ROLE,
-    LAB_TECHNICIAN_ROLE,
-    NURSE_ROLE,
-    PHARMACIST_ROLE,
-    RANDO_VIEW_ROLE,
-    SITE_COORDINATOR,
-    SITE_DATA_MANAGER_ROLE,
-    SITE_PHARMACIST_ROLE,
-    STAFF_ROLE,
-    STATISTICIAN_ROLE,
-    TMG_ROLE,
-)
-from .group_names import (
+from .default_group_names import (
     ACCOUNT_MANAGER,
     ADMINISTRATION,
     AE,
@@ -43,33 +24,29 @@ from .group_names import (
     STATISTICIAN,
     TMG,
     TMG_REVIEW,
-    UNBLINDING_REQUESTORS,
-    UNBLINDING_REVIEWERS,
+)
+from .default_role_names import (
+    ACCOUNT_MANAGER_ROLE,
+    AUDITOR_ROLE,
+    CLINICIAN_ROLE,
+    CLINICIAN_SUPER_ROLE,
+    CUSTOM_ROLE,
+    DATA_EXPORTER_ROLE,
+    DATA_MANAGER_ROLE,
+    LAB_TECHNICIAN_ROLE,
+    NURSE_ROLE,
+    PHARMACIST_ROLE,
+    RANDO_VIEW_ROLE,
+    SITE_COORDINATOR,
+    SITE_DATA_MANAGER_ROLE,
+    SITE_PHARMACIST_ROLE,
+    STAFF_ROLE,
+    STATISTICIAN_ROLE,
+    TMG_ROLE,
 )
 
-role_names = {
-    ACCOUNT_MANAGER_ROLE: "Account Manager",
-    AUDITOR_ROLE: "Auditor",
-    CLINICIAN_ROLE: "Clinician",
-    CLINICIAN_SUPER_ROLE: "Clinician Super",
-    CUSTOM_ROLE: "Custom ...",
-    DATA_EXPORTER_ROLE: "Data Exporter",
-    DATA_MANAGER_ROLE: "Data Manager",
-    LAB_TECHNICIAN_ROLE: "Laboratory Technician",
-    NURSE_ROLE: "Research Nurse",
-    PHARMACIST_ROLE: "Pharmacist",
-    RANDO_VIEW_ROLE: "Randomization view",
-    SITE_COORDINATOR: "Site Coordinator",
-    SITE_DATA_MANAGER_ROLE: "Site Data Manager",
-    SITE_PHARMACIST_ROLE: "Site Pharmacist",
-    STATISTICIAN_ROLE: "Statistician",
-    STAFF_ROLE: "Staff",
-    TMG_ROLE: "TMG (External Review)",
-}
-
-required_role_names = {STAFF_ROLE: "Staff"}
-
-groups_by_role_name = {
+# Format {ROLE_NAME: [GROUP_NAME, GROUP_NAME, ...]
+default_roles = {
     ACCOUNT_MANAGER_ROLE: [ACCOUNT_MANAGER, ADMINISTRATION, EVERYONE],
     AUDITOR_ROLE: [
         ADMINISTRATION,
@@ -91,7 +68,6 @@ groups_by_role_name = {
         PII,
         REVIEW,
         SCREENING,
-        UNBLINDING_REQUESTORS,
     ],
     CLINICIAN_SUPER_ROLE: [
         CLINIC_SUPER,
@@ -110,7 +86,6 @@ groups_by_role_name = {
         PII,
         REVIEW,
         SCREENING,
-        UNBLINDING_REQUESTORS,
     ],
     LAB_TECHNICIAN_ROLE: [ADMINISTRATION, EVERYONE, LAB, PII_VIEW],
     NURSE_ROLE: [
@@ -123,7 +98,6 @@ groups_by_role_name = {
         PII,
         REVIEW,
         SCREENING,
-        UNBLINDING_REQUESTORS,
     ],
     PHARMACIST_ROLE: [ADMINISTRATION, EVERYONE, PHARMACY, RANDO],
     RANDO_VIEW_ROLE: [ADMINISTRATION, EVERYONE, RANDO],
@@ -143,5 +117,5 @@ groups_by_role_name = {
         STATISTICIAN,
         TMG_REVIEW,
     ],
-    TMG_ROLE: [ADMINISTRATION, EVERYONE, REVIEW, TMG, UNBLINDING_REVIEWERS],
+    TMG_ROLE: [ADMINISTRATION, EVERYONE, REVIEW, TMG],
 }

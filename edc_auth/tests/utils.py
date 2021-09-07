@@ -11,8 +11,9 @@ from faker import Faker
 from mempass import mkpassword
 from secrets import choice
 
+from edc_auth.default_role_names import CLINICIAN_ROLE, LAB_TECHNICIAN_ROLE
+
 from ..import_users import fieldnames
-from ..role_names import CLINICIAN_ROLE, LAB_TECHNICIAN_ROLE
 
 fake = Faker()
 group_names = ["CLINIC", "LAB"]
