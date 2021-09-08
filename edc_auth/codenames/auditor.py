@@ -1,7 +1,5 @@
 from edc_adverse_event.auth_objects import ae_review, tmg_review
 
-from .action_items import action_items
-
 auditor = [
     "edc_action_item.view_reference",
     "edc_adverse_event.view_aeclassification",
@@ -50,9 +48,6 @@ auditor = [
     "edc_offstudy.view_subjectoffstudy",
 ]
 
-auditor.extend(
-    c for c in action_items if ("view_" in c or "edc_nav" in c or "edc_dashboard" in c)
-)
 auditor.extend(ae_review)
 auditor.extend(tmg_review)
 auditor = list(set(auditor))
