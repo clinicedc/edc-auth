@@ -1,4 +1,4 @@
-from .codenames import data_manager, screening
+from .codenames import screening
 from .default_group_names import (
     ACCOUNT_MANAGER,
     ADMINISTRATION,
@@ -8,8 +8,6 @@ from .default_group_names import (
     CELERY_MANAGER,
     CLINIC,
     CLINIC_SUPER,
-    DATA_MANAGER,
-    DATA_QUERY,
     DISPENSING,
     EVERYONE,
     EXPORT,
@@ -18,10 +16,8 @@ from .default_group_names import (
     PHARMACY,
     PII,
     PII_VIEW,
-    RANDO,
     REVIEW,
     SCREENING,
-    SITE_DATA_MANAGER,
     TMG,
 )
 from .default_groups import default_groups

@@ -9,10 +9,11 @@ from django.core.exceptions import (
     ObjectDoesNotExist,
     ValidationError,
 )
-from edc_randomization.site_randomizers import site_randomizers
+from django.core.management.color import color_style
 
-from ..codename_tuples import dashboard_tuples, get_rando_tuples, navbar_tuples
 from ..default_group_names import PII, PII_VIEW
+
+style = color_style()
 
 
 class PermissionsCodenameError(Exception):
@@ -29,7 +30,6 @@ class CodenameDoesNotExist(Exception):
 
 INVALID_APP_LABEL = "invalid_app_label"
 EDC_AUTH_CODENAMES_WARN_ONLY = getattr(settings, "EDC_AUTH_CODENAMES_WARN_ONLY", False)
-# site_randomizers.autodiscover()
 
 
 class GroupUpdater:
@@ -38,67 +38,32 @@ class GroupUpdater:
         groups: Optional[dict] = None,
         apps=None,
         verbose=None,
-        extra_pii_models=None,
-        create_codename_tuples=None,
+        pii_models=None,
         **kwargs,
     ):
         self.apps = apps or django_apps
         self.groups = groups
         self.group_names = list(self.groups.keys())
         self.verbose = verbose
-        self.extra_pii_models = extra_pii_models or []
-        self.create_codename_tuples = create_codename_tuples
+        self.pii_models = pii_models or []
         self.group_model_cls = self.apps.get_model("auth.group")
         self.permission_model_cls = self.apps.get_model("auth.permission")
         self.content_type_model_cls = self.apps.get_model("contenttypes.contenttype")
-        self.dashboard_tuples = dashboard_tuples
-        self.navbar_tuples = navbar_tuples
-        self.rando_tuples = get_rando_tuples()
 
     def update_groups(self):
+        if self.verbose:
+            sys.stdout.write(style.MIGRATE_HEADING(" - Updating groups:\n"))
         for group_name, codenames in self.groups.items():
             self.update_group(group_name, codenames, create_group=True)
-        self.update_rando_group_permissions()
-        self.update_other_special_group_permissions()
-        self.remove_permissions_to_dummy_models()
-        self.make_randomizationlist_view_only()
         for group in self.group_model_cls.objects.exclude(name__in=[PII, PII_VIEW]):
             self.remove_pii_permissions_from_group(group)
         self.group_model_cls.objects.exclude(name__in=self.group_names).delete()
-
-    def update_rando_group_permissions(self):
-        """Update group permissions for each registered randomizer class."""
-        for randomizer_cls in site_randomizers._registry.values():
-            if self.verbose:
-                sys.stdout.write(
-                    "  creating permissions for registered randomizer_cls "
-                    f"`{randomizer_cls.name}` model "
-                    f"`{randomizer_cls.model_cls()._meta.label_lower}`\n"
-                )
-            rando_tuples = [
-                (k, v)
-                for k, v in self.rando_tuples
-                if k.startswith(
-                    randomizer_cls.model_cls()._meta.label_lower.split(".")[0]
-                )
-            ]
-            self.create_permissions_from_tuples(
-                randomizer_cls.model_cls()._meta.label_lower,
-                rando_tuples,
-            )
-
-    def update_other_special_group_permissions(self):
-        self.create_permissions_from_tuples(
-            "edc_dashboard.dashboard", self.dashboard_tuples
-        )
-        self.create_permissions_from_tuples("edc_navbar.navbar", self.navbar_tuples)
-        for model, codename_tuples in (self.create_codename_tuples or {}).items():
-            self.create_permissions_from_tuples(model, codename_tuples)
-        self.create_permissions_from_tuples("edc_navbar.navbar", self.navbar_tuples)
+        if self.verbose:
+            sys.stdout.write("   Done.\n")
 
     def update_group(self, group_name, codenames, create_group=None):
         if self.verbose:
-            sys.stdout.write(f"  * {group_name.lower()}\n")
+            sys.stdout.write(f"   * {group_name.lower()}\n")
         try:
             group = self.group_model_cls.objects.get(name=group_name)
         except ObjectDoesNotExist as e:
@@ -175,13 +140,7 @@ class GroupUpdater:
         return app_label, _codename
 
     def remove_pii_permissions_from_group(self, group):
-        default_pii_models = [
-            settings.SUBJECT_CONSENT_MODEL,
-            "edc_locator.subjectlocator",
-            "edc_registration.registeredsubject",
-        ]
-        default_pii_models.extend(self.extra_pii_models)
-        for model in default_pii_models:
+        for model in self.pii_models:
             self.remove_permissions_by_model(group, model)
 
     @staticmethod
@@ -265,47 +224,8 @@ class GroupUpdater:
             )
         return _app_label, codename, name
 
-    def remove_permissions_to_dummy_models(self):
-        for group in self.group_model_cls.objects.all():
-            self.remove_permissions_by_codenames(
-                group=group,
-                codenames=[
-                    "edc_dashboard.add_dashboard",
-                    "edc_dashboard.change_dashboard",
-                    "edc_dashboard.delete_dashboard",
-                    "edc_dashboard.view_dashboard",
-                    "edc_navbar.add_navbar",
-                    "edc_navbar.change_navbar",
-                    "edc_navbar.delete_navbar",
-                    "edc_navbar.view_navbar",
-                ],
-            )
-
     def remove_permissions_by_codenames(self, group=None, codenames=None):
         """Remove the given codenames from the given group."""
         permissions = self.get_permissions_qs_from_codenames(codenames)
         for permission in permissions:
             group.permissions.remove(permission)
-
-    def make_randomizationlist_view_only(self):
-        for randomizer_cls in site_randomizers._registry.values():
-            app_label, model = randomizer_cls.model_cls(
-                apps=self.apps
-            )._meta.label_lower.split(".")
-            permissions = self.permission_model_cls.objects.filter(
-                content_type__app_label=app_label, content_type__model=model
-            ).exclude(codename=f"view_{model}")
-            codenames = [f"{app_label}.{o.codename}" for o in permissions]
-            codenames.extend(
-                [
-                    f"{app_label}.add_{model}",
-                    f"{app_label}.change_{model}",
-                    f"{app_label}.delete_{model}",
-                ]
-            )
-            codenames = list(set(codenames))
-            for group in self.group_model_cls.objects.all():
-                self.remove_permissions_by_codenames(
-                    group=group,
-                    codenames=codenames,
-                )

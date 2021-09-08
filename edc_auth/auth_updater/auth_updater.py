@@ -19,34 +19,57 @@ class AuthUpdater:
         self,
         groups: Optional[dict] = None,
         roles: Optional[dict] = None,
-        post_updates=None,
+        pii_models: Optional[dict] = None,
+        post_update_funcs=None,
         verbose=None,
+        apps=None,
         **kwargs,
     ):
-        if verbose:
+        self.verbose = verbose
+        self.apps = apps
+        if self.verbose:
             sys.stdout.write(
                 style.MIGRATE_HEADING("Updating groups and permissions:\n")
             )
         self.group_updater = self.group_updater_cls(
-            groups=groups or site_auths.groups, **kwargs
+            groups=groups or site_auths.groups,
+            pii_models=pii_models,
+            verbose=self.verbose,
+            apps=self.apps,
+            **kwargs,
         )
         self.role_updater = self.role_updater_cls(
-            roles=roles or site_auths.roles, verbose=None, **kwargs
+            roles=roles or site_auths.roles,
+            verbose=self.verbose,
+            apps=self.apps,
+            **kwargs,
         )
         self.groups = self.group_updater.update_groups()
         self.roles = self.role_updater.update_roles()
-        self.post_update(post_updates, verbose=None, **kwargs)
-
+        self.run_post_updates(post_update_funcs or site_auths.post_update_funcs)
         if verbose:
             sys.stdout.write(style.MIGRATE_HEADING("Done\n"))
             sys.stdout.flush()
 
-    # def update_group(self, *args, **kwargs):
-    #     return self.group_updater.update_group(*args, **kwargs)
-
-    def post_update(self, post_updates, **kwargs):
+    def run_post_updates(self, post_updates):
         """Custom funcs that operate after all groups and roles have been created"""
-        groups = self.group_updater.group_model_cls.objects.all()
-        roles = self.role_updater.role_model_cls.objects.all()
-        for func in post_updates:
-            func(self, groups=groups, roles=roles, **kwargs)
+        if self.verbose:
+            sys.stdout.write(style.MIGRATE_HEADING(" - Running post updates:\n"))
+        if post_updates:
+            for func in post_updates:
+                sys.stdout.write(f"   * {func.__name__}\n")
+                func(self)
+        else:
+            sys.stdout.write("   * nothing to do\n")
+        if self.verbose:
+            sys.stdout.write("   Done\n")
+
+    def create_permissions_from_tuples(self, **kwargs):
+        return self.group_updater.create_permissions_from_tuples(**kwargs)
+
+    @property
+    def group_model_cls(self):
+        return self.group_updater.group_model_cls
+
+    def remove_permissions_by_codenames(self, **kwargs):
+        return self.group_updater.remove_permissions_by_codenames(**kwargs)

@@ -1,14 +1,12 @@
-import pdb
-
 from django.contrib.auth.models import Group, Permission
 from django.core.exceptions import ObjectDoesNotExist
 from django.test import TestCase, tag
 from edc_randomization import Randomizer
+from edc_randomization.auth_objects import get_rando_permissions_tuples
+from edc_randomization.constants import RANDO
 from edc_randomization.site_randomizers import site_randomizers
 
 from edc_auth.auth_updater import AuthUpdater
-from edc_auth.codename_tuples import get_rando_tuples
-from edc_auth.default_group_names import RANDO
 
 from ..randomizers import CustomRandomizer
 
@@ -23,7 +21,7 @@ class TestAuthUpdater(TestCase):
         """Given the two registered randomizers, assert view codenames are returned"""
         self.assertIn(
             ("edc_randomization.view_randomizationlist", "Can view randomization list"),
-            get_rando_tuples(),
+            get_rando_permissions_tuples(),
         )
 
         self.assertIn(
@@ -31,7 +29,7 @@ class TestAuthUpdater(TestCase):
                 "edc_auth.view_customrandomizationlist",
                 "Can view custom randomization list",
             ),
-            get_rando_tuples(),
+            get_rando_permissions_tuples(),
         )
 
     @staticmethod
