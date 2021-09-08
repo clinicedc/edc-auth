@@ -1,7 +1,5 @@
-import pdb
 import sys
 from copy import deepcopy
-from typing import Optional
 
 from django.apps import apps as django_apps
 from django.utils.module_loading import import_module, module_has_submodule
@@ -45,10 +43,14 @@ class SiteAuths:
         self.registry = {
             "groups": default_groups,
             "roles": default_roles,
+            "pre_update_funcs": [],
             "post_update_funcs": [],
             "pii_models": default_pii_models,
         }
         self.loaded = False
+
+    def add_pre_update_func(self, func):
+        self.registry["pre_update_funcs"].append(func)
 
     def add_post_update_func(self, func):
         self.registry["post_update_funcs"].append(func)
@@ -108,6 +110,10 @@ class SiteAuths:
     @property
     def groups(self):
         return self.registry["groups"]
+
+    @property
+    def pre_update_funcs(self):
+        return self.registry["pre_update_funcs"]
 
     @property
     def post_update_funcs(self):

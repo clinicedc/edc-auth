@@ -20,6 +20,7 @@ class AuthUpdater:
         groups: Optional[dict] = None,
         roles: Optional[dict] = None,
         pii_models: Optional[dict] = None,
+        pre_update_funcs=None,
         post_update_funcs=None,
         verbose=None,
         apps=None,
@@ -44,12 +45,26 @@ class AuthUpdater:
             apps=self.apps,
             **kwargs,
         )
+        self.run_pre_updates(pre_update_funcs or site_auths.pre_update_funcs)
         self.groups = self.group_updater.update_groups()
         self.roles = self.role_updater.update_roles()
         self.run_post_updates(post_update_funcs or site_auths.post_update_funcs)
         if verbose:
             sys.stdout.write(style.MIGRATE_HEADING("Done\n"))
             sys.stdout.flush()
+
+    def run_pre_updates(self, pre_updates):
+        """Custom funcs that operate after all groups and roles have been created"""
+        if self.verbose:
+            sys.stdout.write(style.MIGRATE_HEADING(" - Running pre updates:\n"))
+        if pre_updates:
+            for func in pre_updates:
+                sys.stdout.write(f"   * {func.__name__}\n")
+                func(self)
+        else:
+            sys.stdout.write("   * nothing to do\n")
+        if self.verbose:
+            sys.stdout.write("   Done\n")
 
     def run_post_updates(self, post_updates):
         """Custom funcs that operate after all groups and roles have been created"""
