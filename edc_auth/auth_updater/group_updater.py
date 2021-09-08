@@ -85,13 +85,17 @@ class GroupUpdater:
         """Returns a list of permission model instances for the given
         codenames.
 
-        Codenames is a list or function that returns a list
+        codenames:  a list of codenames or a list of functions that
+                      returns a list. Combining codenames and funcs
+                      in a list also works.
         """
         permissions = []
-        try:
-            expanded_codenames = codenames()
-        except TypeError:
-            expanded_codenames = codenames
+        expanded_codenames = []
+        for item in codenames:
+            try:
+                expanded_codenames.extend(item())
+            except TypeError:
+                expanded_codenames.append(item)
         for dotted_codename in expanded_codenames:
             try:
                 app_label, codename = self.get_from_dotted_codename(dotted_codename)

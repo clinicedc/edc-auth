@@ -1,8 +1,6 @@
 from .codenames import (
     account_manager,
     administration,
-    ae,
-    ae_review,
     auditor,
     celery_manager,
     clinic,
@@ -17,14 +15,10 @@ from .codenames import (
     pii_view,
     review,
     statistician,
-    tmg,
-    tmg_review,
 )
 from .default_group_names import (
     ACCOUNT_MANAGER,
     ADMINISTRATION,
-    AE,
-    AE_REVIEW,
     AUDITOR,
     CELERY_MANAGER,
     CLINIC,
@@ -39,13 +33,9 @@ from .default_group_names import (
     PII_VIEW,
     REVIEW,
     STATISTICIAN,
-    TMG,
-    TMG_REVIEW,
 )
 
 default_groups = {
-    AE: ae,
-    AE_REVIEW: ae_review,
     ACCOUNT_MANAGER: account_manager,
     ADMINISTRATION: administration,
     AUDITOR: auditor,
@@ -62,6 +52,4 @@ default_groups = {
     PII_VIEW: pii_view,
     REVIEW: review,
     STATISTICIAN: statistician,
-    TMG: tmg,
-    TMG_REVIEW: tmg_review,
 }

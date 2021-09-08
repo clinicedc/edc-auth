@@ -1,6 +1,6 @@
+from edc_adverse_event.auth_objects import ae_review, tmg_review
+
 from .action_items import action_items
-from .ae_review import ae_review
-from .tmg_review import tmg_review
 
 auditor = [
     "edc_action_item.view_reference",

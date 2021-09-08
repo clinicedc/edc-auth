@@ -1,8 +1,6 @@
 from .default_group_names import (
     ACCOUNT_MANAGER,
     ADMINISTRATION,
-    AE,
-    AE_REVIEW,
     AUDITOR,
     CLINIC,
     CLINIC_SUPER,
@@ -17,8 +15,6 @@ from .default_group_names import (
     REVIEW,
     SCREENING,
     STATISTICIAN,
-    TMG,
-    TMG_REVIEW,
 )
 from .default_role_names import (
     ACCOUNT_MANAGER_ROLE,
@@ -34,7 +30,6 @@ from .default_role_names import (
     SITE_PHARMACIST_ROLE,
     STAFF_ROLE,
     STATISTICIAN_ROLE,
-    TMG_ROLE,
 )
 
 # Format {ROLE_NAME: [GROUP_NAME, GROUP_NAME, ...]
@@ -42,17 +37,14 @@ default_roles = {
     ACCOUNT_MANAGER_ROLE: [ACCOUNT_MANAGER, ADMINISTRATION, EVERYONE],
     AUDITOR_ROLE: [
         ADMINISTRATION,
-        AE_REVIEW,
         AUDITOR,
         EVERYONE,
         LAB_VIEW,
         PII_VIEW,
         REVIEW,
-        TMG_REVIEW,
     ],
     CLINICIAN_ROLE: [
         ADMINISTRATION,
-        AE,
         CLINIC,
         EVERYONE,
         LAB,
@@ -68,7 +60,6 @@ default_roles = {
     LAB_TECHNICIAN_ROLE: [ADMINISTRATION, EVERYONE, LAB, PII_VIEW],
     NURSE_ROLE: [
         ADMINISTRATION,
-        AE,
         CLINIC,
         EVERYONE,
         LAB,
@@ -86,14 +77,11 @@ default_roles = {
     SITE_COORDINATOR: [ADMINISTRATION, EVERYONE],
     STATISTICIAN_ROLE: [
         ADMINISTRATION,
-        AE_REVIEW,
         AUDITOR,
         EVERYONE,
         EXPORT,
         LAB_VIEW,
         REVIEW,
         STATISTICIAN,
-        TMG_REVIEW,
     ],
-    TMG_ROLE: [ADMINISTRATION, EVERYONE, REVIEW, TMG],
 }

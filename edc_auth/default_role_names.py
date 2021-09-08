@@ -11,7 +11,6 @@ SITE_COORDINATOR = "site_coordinator"
 SITE_PHARMACIST_ROLE = "site_pharmacist"
 STAFF_ROLE = "staff"
 STATISTICIAN_ROLE = "statistician"
-TMG_ROLE = "tmg"
 
 default_role_names = {
     ACCOUNT_MANAGER_ROLE: "Account Manager",
@@ -27,5 +26,4 @@ default_role_names = {
     SITE_PHARMACIST_ROLE: "Site Pharmacist",
     STATISTICIAN_ROLE: "Statistician",
     STAFF_ROLE: "Staff",
-    TMG_ROLE: "TMG (External Review)",
 }

@@ -1,9 +1,14 @@
+import pdb
 import sys
 from copy import deepcopy
 from typing import Optional
 
 from django.apps import apps as django_apps
 from django.utils.module_loading import import_module, module_has_submodule
+
+from .default_groups import default_groups
+from .default_pii_models import default_pii_models
+from .default_roles import default_roles
 
 
 class AlreadyRegistered(Exception):
@@ -38,30 +43,12 @@ class SiteAuths:
 
     def __init__(self):
         self.registry = {
-            "groups": {},
-            "roles": {},
+            "groups": default_groups,
+            "roles": default_roles,
             "post_update_funcs": [],
-            "pii_models": [],
+            "pii_models": default_pii_models,
         }
         self.loaded = False
-
-    def register(
-        self,
-        groups: Optional[dict] = None,
-        roles: Optional[dict] = None,
-        pii_models: Optional[list] = None,
-        post_update_funcs: Optional[list] = None,
-    ):
-        if self.loaded:
-            raise SiteAuthError(
-                "Already registered. `register` may only be called once. "
-                "Try the add/update/replace methods."
-            )
-        self.add_groups(groups)
-        self.add_roles(roles)
-        self.registry["post_update_funcs"] = post_update_funcs or []
-        self.registry["pii_models"] = pii_models or []
-        self.loaded = True
 
     def add_post_update_func(self, func):
         self.registry["post_update_funcs"].append(func)
@@ -71,24 +58,24 @@ class SiteAuths:
 
     def add_groups(self, data: dict):
         for name, codenames in data.items():
-            self.add_group(name, codenames)
+            self.add_group(codenames, name=name)
 
     def add_roles(self, data: dict):
         for name, group_names in data.items():
-            self.add_role(name, group_names)
+            self.add_role(group_names, name=name)
 
-    def add_group(self, name, codenames_or_func):
+    def add_group(self, *codenames_or_func, name=None):
         if name in self.registry["groups"]:
             raise GroupAlreadyExists(f"Group name already exists. Got {name}.")
         self.registry["groups"].update({name: codenames_or_func})
 
-    def add_role(self, name, group_names):
+    def add_role(self, *group_names, name=None):
         if name in self.registry["groups"]:
             raise RoleAlreadyExists(f"Role name already exists. Got {name}.")
         group_names = list(set(group_names))
         self.registry["roles"].update({name: group_names})
 
-    def update_group(self, name: str, codenames: list) -> None:
+    def update_group(self, *codenames, name=None) -> None:
         codenames = list(set(codenames))
         if name not in self.registry["groups"]:
             raise InvalidGroup(f"Unable to update. Invalid group name. Got {name}")
@@ -97,7 +84,7 @@ class SiteAuths:
         existing_codenames = list(set(existing_codenames))
         self.registry["groups"].update({name: existing_codenames})
 
-    def update_role(self, name: str, group_names: list) -> None:
+    def update_role(self, *group_names, name=None) -> None:
         group_names = list(set(group_names))
         if name not in self.registry["roles"]:
             raise InvalidRole(f"Unable to update. Invalid role name. Got {name}")
@@ -106,11 +93,11 @@ class SiteAuths:
         existing_group_names = list(set(existing_group_names))
         self.registry["roles"].update({name: existing_group_names})
 
-    def replace_group(self, name, codenames):
+    def replace_group(self, *codenames, name=None):
         del self.registry["groups"][name]
         self.add_group(name, codenames)
 
-    def replace_role(self, name, group_names):
+    def replace_role(self, *group_names, name=None):
         del self.registry["roles"][name]
         self.add_role(name, group_names)
 

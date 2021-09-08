@@ -1,7 +1,6 @@
 from .account_manager import account_manager
+from .action_items import action_items
 from .administration import administration
-from .ae import ae
-from .ae_review import ae_review
 from .auditor import auditor
 from .celery_manager import celery_manager
 from .clinic import clinic
@@ -17,5 +16,3 @@ from .pii_view import pii_view
 from .review import review
 from .screening import screening
 from .statistician import statistician
-from .tmg import tmg
-from .tmg_review import tmg_review
