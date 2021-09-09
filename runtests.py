@@ -2,6 +2,7 @@
 import logging
 from os.path import abspath, dirname
 
+from edc_constants.constants import IGNORE
 from edc_test_utils import DefaultTestSettings, func_main
 
 app_name = "edc_auth"
@@ -9,7 +10,7 @@ base_dir = dirname(abspath(__file__))
 
 project_settings = DefaultTestSettings(
     calling_file=__file__,
-    excluded_apps=["edc_navbar.apps.AppConfig"],
+    EDC_NAVBAR_VERIFY_ON_LOAD=IGNORE,
     EDC_AUTH_CODENAMES_WARN_ONLY=True,
     BASE_DIR=base_dir,
     APP_NAME=app_name,
