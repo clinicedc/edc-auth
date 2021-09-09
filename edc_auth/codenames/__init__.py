@@ -7,8 +7,6 @@ from .clinic_super import clinic_super
 from .dispensing import dispensing
 from .everyone import everyone
 from .export import export
-from .lab import lab, lab_dashboard, lab_navbar
-from .lab_view import lab_view
 from .pharmacy import pharmacy
 from .pii import pii
 from .pii_view import pii_view

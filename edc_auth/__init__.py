@@ -9,8 +9,6 @@ from .default_group_names import (
     DISPENSING,
     EVERYONE,
     EXPORT,
-    LAB,
-    LAB_VIEW,
     PHARMACY,
     PII,
     PII_VIEW,

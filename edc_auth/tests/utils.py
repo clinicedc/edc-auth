@@ -6,12 +6,13 @@ from django.contrib.auth.models import Group, User
 from django.contrib.sites.models import Site
 from django.core.exceptions import ObjectDoesNotExist
 from django.test import TestCase
+from edc_lab.auth_objects import LAB_TECHNICIAN_ROLE
 from edc_sites.models import SiteProfile
 from faker import Faker
 from mempass import mkpassword
 from secrets import choice
 
-from edc_auth.default_role_names import CLINICIAN_ROLE, LAB_TECHNICIAN_ROLE
+from edc_auth.default_role_names import CLINICIAN_ROLE
 
 from ..import_users import fieldnames
 

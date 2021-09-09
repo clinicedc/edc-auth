@@ -4,7 +4,6 @@ CLINICIAN_ROLE = "clinician"
 CLINICIAN_SUPER_ROLE = "clinician_super"
 CUSTOM_ROLE = "custom"
 DATA_EXPORTER_ROLE = "data_exporter"
-LAB_TECHNICIAN_ROLE = "laboratory_technician"
 NURSE_ROLE = "research_nurse"
 PHARMACIST_ROLE = "pharmacist"
 SITE_COORDINATOR = "site_coordinator"
@@ -19,7 +18,6 @@ default_role_names = {
     CLINICIAN_SUPER_ROLE: "Clinician Super",
     CUSTOM_ROLE: "Custom ...",
     DATA_EXPORTER_ROLE: "Data Exporter",
-    LAB_TECHNICIAN_ROLE: "Laboratory Technician",
     NURSE_ROLE: "Research Nurse",
     PHARMACIST_ROLE: "Pharmacist",
     SITE_COORDINATOR: "Site Coordinator",

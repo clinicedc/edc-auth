@@ -1,3 +1,4 @@
+import pdb
 import sys
 from typing import Optional
 from warnings import warn
@@ -109,11 +110,11 @@ class GroupUpdater:
                         )
                     )
                 except ObjectDoesNotExist as e:
-                    errmsg = f"{e}. Got codename={codename},app_label={app_label}"
+                    errmsg = f"{e} Got codename={codename},app_label={app_label}"
                     if EDC_AUTH_CODENAMES_WARN_ONLY:
                         warn(style.ERROR(errmsg))
                     else:
-                        raise ObjectDoesNotExist(errmsg)
+                        raise CodenameDoesNotExist(errmsg)
                 except MultipleObjectsReturned as e:
                     raise MultipleObjectsReturned(
                         f"{str(e)} See `{app_label}.{codename}`."
