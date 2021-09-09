@@ -19,7 +19,7 @@ def post_migrate_user_groups_and_roles(sender=None, **kwargs):  # noqa
     try:
         AuthUpdater(apps=django_apps, verbose=True)
     except CodenameDoesNotExist as e:
-        sys.stdout.write(style.ERROR("{e}. "))
+        sys.stdout.write(style.ERROR(f"{e}. "))
         sys.stdout.write(
             style.ERROR(
                 "\nIf the codename is mispelled, correct the error and try again.\n\n"
