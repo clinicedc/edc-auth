@@ -28,6 +28,77 @@ Permissions use Django's permission framework,  therefore, all permissions are l
 
 Permissions don't always naturally link to a model. In such cases, a dummy model is created. For example, with Navigation bars from `edc_navbar`. Permissions to follow an item on a navigation bar are associated with model `edc_navbar.Navbar`. A similar approach is used for `listboard` permissions using `edc_dashboard.Dashboard`.
 
+Extending permissions with `site_auths` global
+++++++++++++++++++++++++++++++++++++++++++++++
+
+A module can add new or update existing groups and roles and even add custom codenames.
+
+The `site_auths` global `autodiscovers` configurations from `auths.py` in the root of your module.
+The `site_auths` global gathers but does not validate or change any data in `django's`
+``group``/``permission`` models or the `Edc's` ``role`` model.
+
+The `site_auths` global gathers data:
+* to ADD new groups,
+* to update codenames for an existing group,
+* to add a new role
+* to update the group list for an existing role
+* to add to the list of PII models
+* to specifiy custom functions to run before and after groups and roles have been updated
+
+For example,
+
+.. code-block:: python
+
+    # auths.py
+    from edc_auth.default_role_names import CLINICIAN_ROLE, STATISTICIAN_ROLE
+    from edc_auth.site_auths import site_auths
+
+    from edc_protocol_violation.auth_objects import (
+        PROTOCOL_VIOLATION,
+        PROTOCOL_VIOLATION_VIEW,
+        protocol_violation_codenames,
+        protocol_violation_view_codenames,
+    )
+
+    # add a new group specific to models in this module
+    site_auths.add_group(*protocol_violation_codenames, name=PROTOCOL_VIOLATION)
+    # add a new group specific to models in this module
+    site_auths.add_group(*protocol_violation_view_codenames, name=PROTOCOL_VIOLATION_VIEW)
+    # update the existing role CLINICIAN_ROLE to add the group PROTOCOL_VIOLATION
+    site_auths.update_role(PROTOCOL_VIOLATION, name=CLINICIAN_ROLE)
+    # update the existing role STATISTICIAN_ROLE to add the group PROTOCOL_VIOLATION_VIEW
+    site_auths.update_role(PROTOCOL_VIOLATION_VIEW, name=STATISTICIAN_ROLE)
+
+
+As a convention, we define group names, lists of codenames and custom functions `auth_objects.py`.
+
+In the above example, the `auth_objects.py` looks like this:
+
+.. code-block:: python
+
+    # auth_objects.py
+
+    # declare group names
+    PROTOCOL_VIOLATION = "PROTOCOL_VIOLATION"
+    PROTOCOL_VIOLATION_VIEW = "PROTOCOL_VIOLATION_VIEW"
+    # add/change/delete/view codenames
+    protocol_violation_codenames = (
+        "edc_protocol_violation.add_protocoldeviationviolation",
+        "edc_protocol_violation.change_protocoldeviationviolation",
+        "edc_protocol_violation.delete_protocoldeviationviolation",
+        "edc_protocol_violation.view_protocoldeviationviolation",
+    )
+    # view only codename
+    protocol_violation_view_codenames = (
+        "edc_protocol_violation.view_protocoldeviationviolation",
+    )
+
+
+AuthUpdater
++++++++++++
+The `AuthUpdater` class runs in a post_migrate signal declared in `apps.py`. The `AuthUpdater` reads and validates the data gathered by `site_auths`. Once all validation checks pass, the `AuthUpdater` updates `Django's` ``group`` and ``permission`` models as well as the `Edc's` ``Role`` model.
+
+
 
 Importing users
 +++++++++++++++
@@ -38,9 +109,9 @@ Import users from a CSV file with columns:
 
 .. code-block:: bash
 
-	username
-	first_name
-	last_name
+    username
+    first_name
+    last_name
     job_title
     email
     alternate_email
@@ -53,7 +124,7 @@ Then import the users from your application commandline
 
 .. code-block:: bash
 
-	python manage.py import_users --csvfile=/Users/erikvw/meta_users.csv --notify-to-test-email=ew2789@gmail --resource-name=meta.clinicedc.org --resend-as-new
+    python manage.py import_users --csvfile=/Users/erikvw/meta_users.csv --notify-to-test-email=ew2789@gmail --resource-name=meta.clinicedc.org --resend-as-new
 
 Legacy notes
 ++++++++++++
