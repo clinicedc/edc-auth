@@ -33,11 +33,11 @@ Extending permissions with `site_auths` global
 
 A module can add new or update existing groups and roles and even add custom codenames.
 
-The `site_auths` global `autodiscovers` configurations from `auths.py` in the root of your module.
-The `site_auths` global gathers but does not validate or change any data in `django's`
-``group``/``permission`` models or the `Edc's` ``role`` model.
+The ``site_auths`` global ``autodiscovers`` configurations from ``auths.py`` in the root of your module.
+The ``site_auths`` global gathers but does not validate or change any data in django's
+``group``/``permission`` models or the Edc's ``role`` model.
 
-The `site_auths` global gathers data:
+The ``site_auths`` global gathers data:
 * to ADD new groups,
 * to update codenames for an existing group,
 * to add a new role
@@ -70,9 +70,9 @@ For example,
     site_auths.update_role(PROTOCOL_VIOLATION_VIEW, name=STATISTICIAN_ROLE)
 
 
-As a convention, we define group names, lists of codenames and custom functions `auth_objects.py`.
+As a convention, we define group names, lists of codenames and custom functions ``auth_objects.py``.
 
-In the above example, the `auth_objects.py` looks like this:
+In the above example, the ``auth_objects.py`` looks like this:
 
 .. code-block:: python
 
@@ -96,19 +96,26 @@ In the above example, the `auth_objects.py` looks like this:
 
 AuthUpdater
 +++++++++++
-The `AuthUpdater` class runs in a post_migrate signal declared in `apps.py`. The `AuthUpdater` reads and validates the data gathered by `site_auths`. Once all validation checks pass, the `AuthUpdater` updates `Django's` ``group`` and ``permission`` models as well as the `Edc's` ``Role`` model.
+The ``AuthUpdater`` class runs in a post_migrate signal declared in ``apps.py``.
+The ``AuthUpdater`` reads and validates the data gathered by ``site_auths``. Once all
+validation checks pass, the ``AuthUpdater`` updates Django's ``group`` and ``permission``
+models as well as the Edc's ``Role`` model.
 
+Validation checks include confirming models refered to in codenames exist. This means that
+the app where models are declared must be in your ``INSTALLED_APPS``.
+
+During tests having all codenames load may not be ideal. See below on some strategies for testing.
 
 
 Testing SiteAuths, AuthUpdater
 ++++++++++++++++++++++++++++++
 
-An app sets up its own groups and roles using the `site_auths` global in `auths.py`. To test just your apps
-configuration, you can prevent `site_auths` from autodiscovering other modules by setting::
+An app sets up its own groups and roles using the ``site_auths`` global in ``auths.py``. To test just your apps
+configuration, you can prevent ``site_auths`` from autodiscovering other modules by setting::
 
     EDC_AUTH_SKIP_SITE_AUTHS=True
 
-You can prevent the `AuthUpdater` from updating groups and permissions by setting::
+You can prevent the ``AuthUpdater`` from updating groups and permissions by setting::
 
     EDC_AUTH_SKIP_AUTH_UPDATER=True
 
@@ -123,9 +130,35 @@ You can then override these attributes in your tests
     class TestMyTests(TestCase):
         ...
 
-Above the `site_auths` global autodiscover is still disabled but the `AuthUpdater` is not. In your test
-setup you can update `site_auths` manually so that your tests focus on the add/update or groups/roles/codenames/tuples
-relevant to your app.
+
+Above the ``site_auths`` global ``autodiscover`` is still disabled but the ``AuthUpdater`` is not.
+In your test setup you can update ``site_auths`` manually so that your tests focus on the
+add/update or groups/roles/codenames/tuples relevant to your app.
+
+You can emulate ``autodiscover`` behaviour by explicitly importing ``auths`` modules needed for your tests.
+
+For example:
+
+.. code-block:: python
+
+    from importlib import import_module
+
+    from django.test import TestCase, override_settings
+    from edc_auth.auth_updater import AuthUpdater
+
+
+    class TestAuths(TestCase):
+        @override_settings(
+            EDC_AUTH_SKIP_SITE_AUTHS=True,
+            EDC_AUTH_SKIP_AUTH_UPDATER=True,
+        )
+        def test_load(self):
+            import_module(f"edc_dashboard.auths")
+            import_module(f"edc_navbar.auths")
+            AuthUpdater(verbose=True)
+
+
+You can ``clear`` the ``site_auths`` registry and add back specific items need for your tests.
 
 For example:
 
