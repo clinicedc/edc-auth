@@ -100,6 +100,54 @@ The `AuthUpdater` class runs in a post_migrate signal declared in `apps.py`. The
 
 
 
+Testing SiteAuths, AuthUpdater
+++++++++++++++++++++++++++++++
+
+An app sets up its own groups and roles using the `site_auths` global in `auths.py`. To test just your apps
+configuration, you can prevent `site_auths` from autodiscovering other modules by setting::
+
+    EDC_AUTH_SKIP_SITE_AUTHS=True
+
+You can prevent the `AuthUpdater` from updating groups and permissions by setting::
+
+    EDC_AUTH_SKIP_AUTH_UPDATER=True
+
+You can then override these attributes in your tests
+
+.. code-block:: python
+
+    @override_settings(
+        EDC_AUTH_SKIP_SITE_AUTHS=True,
+        EDC_AUTH_SKIP_AUTH_UPDATER=False
+    )
+    class TestMyTests(TestCase):
+        ...
+
+Above the `site_auths` global autodiscover is still disabled but the `AuthUpdater` is not. In your test
+setup you can update `site_auths` manually so that your tests focus on the add/update or groups/roles/codenames/tuples
+relevant to your app.
+
+For example:
+
+.. code-block:: python
+
+    # taken from edc-dashboard
+    @override_settings(EDC_AUTH_SKIP_SITE_AUTHS=True, EDC_AUTH_SKIP_AUTH_UPDATER=False)
+    class TestMyTests(TestCase):
+        def setUpTestData(cls):
+            site_auths.empty_registry()
+            site_auths.add_group("edc_dashboard.view_my_listboard", name=CLINIC)
+            site_auths.add_custom_permissions_tuples(
+                model="edc_dashboard.dashboard",
+                codename_tuples=(("edc_dashboard.view_my_listboard", "View my listboard"),),
+            )
+            AuthUpdater(verbose=False, warn_only=True)
+            return super().setUpTestData()
+
+        def test_me(self):
+            ...
+
+
 Importing users
 +++++++++++++++
 
