@@ -50,7 +50,7 @@ For example,
 .. code-block:: python
 
     # auths.py
-    from edc_auth.default_role_names import CLINICIAN_ROLE, STATISTICIAN_ROLE
+    from edc_auth.auth_objects import CLINICIAN_ROLE, STATISTICIAN_ROLE
     from edc_auth.site_auths import site_auths
 
     from edc_protocol_violation.auth_objects import (
