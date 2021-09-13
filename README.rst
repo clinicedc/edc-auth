@@ -135,7 +135,7 @@ For example:
     @override_settings(EDC_AUTH_SKIP_SITE_AUTHS=True, EDC_AUTH_SKIP_AUTH_UPDATER=False)
     class TestMyTests(TestCase):
         def setUpTestData(cls):
-            site_auths.empty_registry()
+            site_auths.clear()
             site_auths.add_group("edc_dashboard.view_my_listboard", name=CLINIC)
             site_auths.add_custom_permissions_tuples(
                 model="edc_dashboard.dashboard",
@@ -146,6 +146,7 @@ For example:
 
         def test_me(self):
             ...
+
 
 
 Importing users
