@@ -1,3 +1,10 @@
+0.3.31
+------
+- remove inline for `add` user. Add back for `change` user.
+  This avoids a conflict where a signal requires the UserProfile instance
+  but it may not have been created yet. 
+
+
 0.3.29
 ------
 - refresh roles for all user accounts as last step in AuthUpdater
