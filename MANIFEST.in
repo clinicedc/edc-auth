@@ -1,7 +1,5 @@
 include AUTHORS CHANGES LICENSE VERSION
 include MANIFEST.in
 include *.rst
-include *.txt
 recursive-include edc_auth/templates *
-recursive-include edc_auth/static *
 recursive-include edc_auth/management *
