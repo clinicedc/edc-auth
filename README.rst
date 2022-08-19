@@ -192,14 +192,16 @@ Import users from a CSV file with columns:
 .. code-block:: bash
 
     username
+    is_staff
+    is_active
     first_name
     last_name
     job_title
     email
-    alternate_email
     mobile
-    sites: a comma-separated list of sites
-    groups: a comma-separated list of groups
+    alternate_email
+    site_names: a comma-separated list of sites
+    role_names: a comma-separated list of roles
 
 
 Then import the users from your application commandline
@@ -240,4 +242,3 @@ You can now run the ``edc_base`` migration safely.
 
 .. |downloads| image:: https://pepy.tech/badge/edc-auth
    :target: https://pepy.tech/project/edc-auth
-
