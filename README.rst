@@ -26,7 +26,10 @@ Permissions
 
 Permissions use Django's permission framework,  therefore, all permissions are linked to some model.
 
-Permissions don't always naturally link to a model. In such cases, a dummy model is created. For example, with Navigation bars from `edc_navbar`. Permissions to follow an item on a navigation bar are associated with model `edc_navbar.Navbar`. A similar approach is used for `listboard` permissions using `edc_dashboard.Dashboard`.
+Permissions don't always naturally link to a model. In such cases, a dummy model is created.
+For example, with Navigation bars from `edc_navbar`. Permissions to follow an item on a
+navigation bar are associated with model `edc_navbar.Navbar`. A similar approach is used for
+`listboard` permissions using `edc_dashboard.Dashboard`.
 
 Extending permissions with `site_auths` global
 ++++++++++++++++++++++++++++++++++++++++++++++
@@ -171,7 +174,7 @@ For example:
             site_auths.clear()
             site_auths.add_group("edc_dashboard.view_my_listboard", name=CLINIC)
             site_auths.add_custom_permissions_tuples(
-                model="edc_dashboard.dashboard",
+                model="edc_dashboard.edcpermissions",
                 codename_tuples=(("edc_dashboard.view_my_listboard", "View my listboard"),),
             )
             AuthUpdater(verbose=False, warn_only=True)
