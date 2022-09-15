@@ -23,7 +23,7 @@ project_settings = DefaultTestSettings(
 
 
 def main():
-    func_main(app_name, project_settings)
+    func_main(project_settings, f"{app_name}.tests")
 
 
 if __name__ == "__main__":
