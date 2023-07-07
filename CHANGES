@@ -1,3 +1,9 @@
+0.3.62
+------
+- updates to user admin:
+    - add 'By Country' list filter
+    - group permitted sites listed for each user by country
+
 0.3.31
 ------
 - remove inline for `add` user. Add back for `change` user.
