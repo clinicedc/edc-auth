@@ -1,3 +1,8 @@
+0.3.62
+------
+- Add 'By Country' list filter to user admin
+- Group sites listed in user account rows by country
+
 0.3.31
 ------
 - remove inline for `add` user. Add back for `change` user.
