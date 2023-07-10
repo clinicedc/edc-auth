@@ -1,3 +1,7 @@
+0.3.63
+------
+- add migration adding default manager on options
+
 0.3.62
 ------
 - updates to user admin:
