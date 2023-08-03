@@ -223,19 +223,19 @@ Copy the same table from ``edc_base`` and fake the ``edc_auth`` migration.
 
 .. code-block:: sql
 
-	CREATE TABLE edc_auth_userprofile LIKE edc_base_userprofile;
+    CREATE TABLE edc_auth_userprofile LIKE edc_base_userprofile;
 
-	INSERT edc_auth_userprofile SELECT * FROM edc_base_userprofile;
+    INSERT edc_auth_userprofile SELECT * FROM edc_base_userprofile;
 
 
 .. code-block:: bash
 
-	python manage.py migrate edc_auth --fake
+    python manage.py migrate edc_auth --fake
 
 You can now run the ``edc_base`` migration safely.
 
 .. |pypi| image:: https://img.shields.io/pypi/v/edc-auth.svg
-    :target: https://pypi.python.org/pypi/edc-auth
+  :target: https://pypi.python.org/pypi/edc-auth
 
 .. |actions| image:: https://github.com/clinicedc/edc-auth/workflows/build/badge.svg?branch=develop
   :target: https://github.com/clinicedc/edc-auth/actions?query=workflow:build
