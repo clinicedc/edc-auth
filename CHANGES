@@ -1,3 +1,7 @@
+0.3.67
+------
+- add support for translation
+
 0.3.63
 ------
 - add migration adding default manager on options
