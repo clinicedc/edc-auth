@@ -3,3 +3,4 @@ include MANIFEST.in
 include *.rst
 recursive-include edc_auth/templates *
 recursive-include edc_auth/management *
+include */locale/*/LC_MESSAGES/*.mo
