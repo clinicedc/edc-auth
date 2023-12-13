@@ -13,6 +13,12 @@ jobs:
       matrix:
         python-version: ['3.11', '3.12']
         django-version: ['4.2', '5.0', 'dev']
+
+        exclude:
+          - python-version: '3.12'
+            django-version: '4.2'
+          - python-version: '3.11'
+            django-version: 'dev'
     services:
       mysql:
         image: mysql:latest

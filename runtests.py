@@ -1,12 +1,12 @@
 #!/usr/bin/env python
 import logging
-from os.path import abspath, dirname
+from pathlib import Path
 
 from edc_constants.constants import IGNORE
 from edc_test_utils import DefaultTestSettings, func_main
 
 app_name = "edc_auth"
-base_dir = dirname(abspath(__file__))
+base_dir = Path(__file__).absolute().parent
 
 project_settings = DefaultTestSettings(
     calling_file=__file__,
