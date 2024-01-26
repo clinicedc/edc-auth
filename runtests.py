@@ -10,6 +10,7 @@ base_dir = Path(__file__).absolute().parent
 
 project_settings = DefaultTestSettings(
     calling_file=__file__,
+    SILENCED_SYSTEM_CHECKS=["edc_sites.E001", "sites.E101"],
     EDC_NAVBAR_VERIFY_ON_LOAD=IGNORE,
     EDC_AUTH_CODENAMES_WARN_ONLY=True,
     EDC_AUTH_SKIP_SITE_AUTHS=True,
