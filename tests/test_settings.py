@@ -20,6 +20,7 @@ project_settings = DefaultTestSettings(
     EDC_AUTH_CODENAMES_WARN_ONLY=True,
     EDC_AUTH_SKIP_SITE_AUTHS=True,
     EDC_AUTH_SKIP_AUTH_UPDATER=True,
+    EXTRA_INSTALLED_APPS=["edc_qareports.apps.AppConfig"],
     BASE_DIR=base_dir,
     APP_NAME=app_name,
     SUBJECT_VISIT_MODEL="edc_visit_tracking.subjectvisit",
