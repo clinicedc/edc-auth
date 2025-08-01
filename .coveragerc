@@ -1,4 +1,0 @@
-[run]
-include = edc_auth/*
-omit = edc_auth/tests/*,edc_auth/migrations/*
-branch = 1

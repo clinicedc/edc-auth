@@ -1,6 +1,49 @@
 [build-system]
-requires = ["setuptools>=64", "setuptools-scm>=8"]
-build-backend = "setuptools.build_meta"
+requires = ["uv_build>=0.8.2,<0.9.0"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-root = "src"
+source-exclude = ["bin"]
+namespace = false
+
+[project]
+name = "edc-auth"
+version = "1.0.2"
+description = "Authentication for clinicedc/edc projects"
+readme = {file = "README.rst", content-type = "text/x-rst"}
+license = "GPL-3.0-or-later"
+license-files = ["LICEN[CS]E*"]
+requires-python = ">=3.12,<3.14"
+authors = [
+    { name = "Erik van Widenfelt", email = "ew2789@gmail.com" },
+]
+keywords = [
+    "authentication",
+    "clinical",
+    "clinicedc",
+    "django",
+    "permissions",
+    "roles",
+    "trials",
+]
+classifiers = [
+    "Environment :: Web Environment",
+    "Framework :: Django",
+    "Framework :: Django :: 5.2",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+]
+dependencies = [
+    "mempass",
+]
+
+[project.urls]
+Homepage = "https://github.com/clinicedc/edc-auth"
 
 [tool.setuptools_scm]
 version_file = "_version.py"
@@ -32,57 +75,96 @@ exclude_lines = [
   "if TYPE_CHECKING:",
 ]
 
-[tool.tox]
-legacy_tox_ini = """
-[tox]
-envlist =
-    py{312,313}-dj{51,dev},
-    lint
-    pre-commit
+[dependency-groups]
+lint = [
+    "black>=25.1.0",
+    "deptry>=0.23.0",
+    "flake8>=7.3.0",
+    "isort>=6.0.1",
+    "ruff>=0.12.5",
+]
 
-isolated_build = true
+docs = [
+    "furo>=2025.7.19",
+    "sphinx>=8.2.3",
+    "sphinx-design>=0.6.1",
+    "sphinx-inline-tabs>=2023.4.21",
+]
 
-[gh-actions]
-python =
-    3.12: py312, lint, pre-commit
-    3.13: py313
-
-[gh-actions:env]
-DJANGO =
-    5.1: dj51
-    dev: djdev, lint, pre-commit
-
-[testenv]
-deps =
-    -r https://raw.githubusercontent.com/clinicedc/edc/develop/requirements.tests/tox.txt
-    -r https://raw.githubusercontent.com/clinicedc/edc/develop/requirements.tests/test_utils.txt
-    -r https://raw.githubusercontent.com/clinicedc/edc/develop/requirements.tests/edc.txt
-    dj51: Django>=5.1,<5.2
-    djdev: https://github.com/django/django/tarball/main
-
-commands =
-    pip install -U pip
-    python --version
-    pip --version
-    pip freeze
-    coverage run -a runtests.py
-    coverage report
-
-[testenv:lint]
-deps = -r https://raw.githubusercontent.com/clinicedc/edc/develop/requirements.tests/lint.txt
-commands =
-    python --version
-    pip --version
-    pip freeze
-    isort --profile=black --check --diff .
-    black --check --diff .
-    flake8 .
-
-[testenv:pre-commit]
-deps = pre-commit
-commands =
-    python --version
-    pip --version
-    pip freeze
-    pre-commit run --all-files
-"""
+test = [
+    "coverage>=7.10.1",
+    "tox-uv>=1.26.2",
+    "faker>=37.4.2",
+    "model-bakery>=1.20.5",
+    "time-machine>=2.16.0",
+    "tqdm>=4.67.1",
+    "django-admin-rangefilter>=0.13.3",
+    "django-crypto-fields>=1.0.1",
+    "django-logentry-admin>=1.1.0",
+    "django-multisite2>=2.1.0",
+    "django-pandas>=0.6.7",
+    "django-revision>=1.0.0",
+    "django-simple-history>=3.10.1",
+    "django-webtest>=1.9.13",
+    "edc-action-item>=1.0.3",
+    "edc-appconfig>=1.0.2",
+    "edc-appointment>=1.1.1",
+    "edc-auth>=1.0.2",
+    "edc-consent>=1.0.3",
+    "edc-constants>=1.0.1",
+    "edc-crf>=1.0.1",
+    "edc-dashboard>=1.0.3",
+    "edc-data-manager>=1.0.0",
+    "edc-device>=1.0.1",
+    "edc-document-status>=1.0.0",
+    "edc-export>=1.0.4",
+    "edc-facility>=1.0.2",
+    "edc-fieldsets>=1.0.1",
+    "edc-form-runners>=1.0.0",
+    "edc-form-validators>=1.0.0",
+    "edc-identifier>=1.0.0",
+    "edc-lab>=1.0.5",
+    "edc-label>=1.0.0",
+    "edc-list-data>=1.0.0",
+    "edc-listboard>=1.0.0",
+    "edc-locator>=1.0.2",
+    "edc-ltfu>=1.0.1",
+    "edc-metadata>=1.0.5",
+    "edc-model-admin>=1.0.3",
+    "edc-model-form>=1.0.0",
+    "edc-model-to-dataframe>=1.0.1",
+    "edc-model>=1.0.0",
+    "edc-navbar>=1.0.0",
+    "edc-notification>=1.0.1",
+    "edc-offstudy>=1.0.1",
+    "edc-pdf-reports>=1.0.2",
+    "edc-pdutils>=1.0.2",
+    "edc-pharmacy>=1.2.3",
+    "edc-prn>=1.1.1",
+    "edc-protocol>=1.0.1",
+    "edc-randomization>=1.0.4",
+    "edc-registration>=1.0.1",
+    "edc-reportable>=2.0.2",
+    "edc-review-dashboard>=1.0.2",
+    "edc-screening>=1.1.0",
+    "edc-search>=1.0.1",
+    "edc-sites>=1.1.0",
+    "edc-subject-dashboard>=1.0.1",
+    "edc-test-settings>=1.1.2",
+    "edc-timepoint>=1.0.1",
+    "edc-unblinding>=1.0.2",
+    "edc-view-utils>=1.0.1",
+    "edc-visit-schedule>=4.1.1",
+    "edc-visit-tracking>=1.0.2",
+    "edc-adverse-event>=1.1.2",
+    "adverse-event-app>=0.1.1",
+    "edc-qareports>=1.0.4",
+    "edc-appointment-app>=0.2.0",
+    "django-db-views>=0.1.11",
+    "edc-test-utils>=1.0.0",
+    "defender>=0.0.3",
+    "django-storages>=1.14.6",
+    "edc-form-describer>=1.0.2",
+    "edc-lab-dashboard>=1.0.2",
+    "edc-protocol-incident>=1.0.1",
+]
